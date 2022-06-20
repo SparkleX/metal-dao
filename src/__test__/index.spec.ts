@@ -2,13 +2,17 @@
 import { init, query } from "..";
 
 const mockCallback = jest.fn();
-
-class DaoTEST {
+class DaoTestBase {
 	@query("select * from TEST","connection 2")
 	async find(a: number, b: string):Promise<any> {
 		throw -1;
 	}
 }
+class DaoTEST extends DaoTestBase{
+
+}
+
+
 beforeEach(() => {
 	init(mockCallback);
 });
